@@ -2,7 +2,37 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-left">
+    <h3 class="display-4">Welcome to the Covid Self-Reporting Portal</h3>
+    <p class="lead"> Please fill out the form below to submit your details. </p>
+
+    <form action="/submit">
+        <div class="row mb-3">
+            <label for="student_number" class="col-sm-2 col-form-label">Student Number</label>
+            <div class="col-sm-4">
+                <input type="text" id="student_number" name="student_number" class="form-control" pattern="[0-9].{7,8}" required title="Must be between 7-8 digits"/>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="diagnosis_date" class="col-sm-2 col-form-label">Date of Covid Diagnosis</label>
+            @{ string today = "" + DateTime.Today.Year + "-" + DateTime.Today.Month + DateTime.Today.Day;
+            }
+            <div class="col-sm-4">
+                <input type="date" id="diagnosis_date" name="diagnosis_date" max=@today class="form-control" required>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="contact_number" class="col-sm-2 col-form-label">Contact Phone Number</label>
+            <div class="col-sm-4">
+                <input type="tel" id="contact_number" name="contact_number" class="form-control" required>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <button type="submit" class="btn btn-danger"> Submit </button>
+        </div>
+    </form>
+    <small class="text-muted">This information may be used to alert other students you may have been in contact with, but your personal information will never be disclosed.</small>
 </div>
