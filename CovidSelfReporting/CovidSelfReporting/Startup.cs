@@ -31,7 +31,7 @@ namespace CovidSelfReporting
             services.AddScoped<IReportService, ReportService>();
 
             services.AddDbContext<ReportDbContext>(options
-                => options.UseSqlServer(Configuration.GetConnectionString("ReportConnection")));
+                => options.UseSqlServer($"Server={server},{port};Initial Catalog={database};User ID={user};Password={password}"));
 
         }
 

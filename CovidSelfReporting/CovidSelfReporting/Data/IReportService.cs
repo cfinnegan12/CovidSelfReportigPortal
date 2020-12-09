@@ -2,7 +2,7 @@
 
 namespace CovidSelfReporting.Data
 {
-    interface IReportService
+    public interface IReportService
     {
         void AddReport(Report report);
     }

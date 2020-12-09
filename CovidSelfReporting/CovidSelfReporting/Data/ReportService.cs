@@ -15,6 +15,7 @@ namespace CovidSelfReporting.Data
         public void AddReport(Report report)
         {
             _context.Reports.Add(report);
+            _context.SaveChanges();
         }
     }
 }
